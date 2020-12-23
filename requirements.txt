@@ -1,0 +1,5 @@
+# Standard requirements
+black
+pylama
+bandit
+# Project specific requirements
