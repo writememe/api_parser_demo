@@ -41,8 +41,8 @@ The most popular way of running this application is using it in a standard Pytho
 1) Clone the repository to the machine on which you will run the application from:
 
 ```git
-git clone https://github.com/writememe/packet-pushers-api-parser-demo.git
-cd packet-pushers-api-parser-demo
+git clone https://github.com/writememe/api_parser_demo.git
+cd api_parser_demo
 ```
 
 2) Create the virtual environment to run the application in:
