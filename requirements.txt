@@ -3,3 +3,4 @@ black
 pylama
 bandit
 # Project specific requirements
+requests
