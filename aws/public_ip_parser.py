@@ -42,20 +42,16 @@ def retrieve_url(url):
         print(f"Other error occurred: {err}")
     # Debug printouts
     # print(f"Response {resp}")
-    print(f"Response OK? - {resp.ok}")
+    # print(f"Response OK? - {resp.ok}")
     # Assign response OK to a variable
     resp_ok = resp.ok
     # If/Else block to assess whether response is OK
     if resp_ok is True:
         # Assign JSON decoded output to a variable
         output = resp.json()
-        # print(type(output))
-        # print("this is good")
     else:
         # Assign the raw text string output to a variable
         output = resp.text
-        # print("this is bad")
-        # print(type(output))
     # Return response ok and output
     return resp_ok, output
 
@@ -101,12 +97,14 @@ def parse_output(output):
     }
     """
     # Retrieve series of values
-    sync_token = output["syncToken"]
-    create_date = output["createDate"]
-    print(f"Sync Token is: {sync_token}")
-    print(f"Create Date is: {create_date}")
+    # sync_token = output["syncToken"]
+    # create_date = output["createDate"]
+    # Debug printouts
+    # print(f"Sync Token is: {sync_token}")
+    # print(f"Create Date is: {create_date}")
     # Assign the IPv4 prefixes to a variable
     ipv4_prefixes = output["prefixes"]
+    # Debug printout
     # print(f"IPv4 Prefixes: {ipv4_prefixes}")
     # Create an empty dictionary to add our results to
     ipv4_dict = {"ipv4_results": {}}
@@ -121,7 +119,7 @@ def parse_output(output):
         service = prefix["service"]
         # Increment unique counter
         aws_counter += 1
-        # Printouts
+        # Debug printouts
         # print(f"IPv4 Prefix: {ipv4_prefix}")
         # print(f"Region: {region}")
         # print(f"Network Border Group: {network_border_group}")
@@ -138,7 +136,7 @@ def parse_output(output):
             + "-"
             + str(aws_counter)
         )
-        # Print description
+        # Debug printouts
         # print(f"Description: {description}")
         # Append IPv4 prefix and description to the IPv4 dict
         ipv4_dict["ipv4_results"][ipv4_prefix] = description
@@ -214,14 +212,13 @@ def output_results(
         # Else, return blank string if set to False
     else:
         csv_filename = ""
-
     # Return the filename for further processing
     return text_filename, csv_filename
 
 
 def main():
     """
-    Main workflow
+    Main workflow which executes the entire solution.
     """
     # Define the AWS URL
     url = "https://ip-ranges.amazonaws.com/ip-ranges.json"
@@ -244,6 +241,7 @@ def main():
             text=False,
             csv=True,
         )
+        # Debug printouts
         print(f"Text Outputs were saved at: {text_filename[0]}")
         print(f"CSV Outputs were saved at: {text_filename[1]}")
     # Else, printout not successful message and output
@@ -252,4 +250,6 @@ def main():
         print(f"Response: {output}")
 
 
-main()
+if __name__ == "__main__":
+    # Execute main workflow
+    main()
