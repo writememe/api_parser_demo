@@ -1,4 +1,5 @@
-# api_parser_demo
+# Parsing APIs for Network Automation
+
 A demo repo containing some examples of parsing APIs to solve a networking problem.
 
 # Overview
@@ -7,7 +8,7 @@ This demonstration is to show how network professionals can solve a common probl
 automation techniques in order to solve it. The idea is that you learn concepts but working towards
 an outcome, which hopefully helps you retain the knowledge.
 
-# Problem Statement
+## Problem Statement
 
 The problem is as a firewall administrator, you might need to find out all the allowed public IP
 prefixes for a cloud service, so that only those explicit ranges can be added to your firewall policy.
@@ -21,6 +22,10 @@ This may come to you in the form of a following business requirement:
 The problem is, where is that public IP range(s) defined? How often does it change? How do I know when it has been updated, so I can updated my firewall rule(s)?
 
 This demo will show you how to use automation on how to retrieve and parse this information.
+
+## Proposed Workflow for Solution
+
+The proposed workflow for the solution is documented in [WORKFLOW.md](./WORKFLOW.md)
 
 
 ## Supported Environments

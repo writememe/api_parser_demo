@@ -238,10 +238,11 @@ def main():
         text_filename = output_results(
             ipv4_dict=ipv4_dict,
             filename_prefix="updated_aws_data",
-            text=False,
+            text=True,
             csv=True,
         )
-        # Debug printouts
+        # Debug printouts by accessing the appropriate
+        # tuple result from the function
         print(f"Text Outputs were saved at: {text_filename[0]}")
         print(f"CSV Outputs were saved at: {text_filename[1]}")
     # Else, printout not successful message and output
@@ -250,6 +251,6 @@ def main():
         print(f"Response: {output}")
 
 
+# Execute main workflow
 if __name__ == "__main__":
-    # Execute main workflow
     main()
